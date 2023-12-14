@@ -62,43 +62,27 @@ The project team faced a pivotal decision in determining whether the prediction 
 
 Based on these observations and analyses, the project team decided to pursue a regression task. This approach is more aligned with the continuous nature of the GDP data as evidenced by the spatial analysis. The regression task allows for the prediction of GDP as an exact value, which is more suitable given the observed continuous variation in GDP across different regions. This decision marks a significant step in developing a model that can accurately predict local GDP using visual data from Street View images.
 
-## Models
-
-We have tried a variety of machine learning models and deep learning models.
-
-#### ML Models
-
-We chose Decision Tree, KNN and SVM, and evaluate their performances .
-
-The indicators are, from top to bottom: `scaled_r2`, `unscaled_mean_absolute_error`, `unscaled_median_absolute_error`
-
-**Decision Tree**
-
-|   Avg    | 95% Confidence Lower Bound | 95% Confidence Upper Bound |
-| :------: | :------------------------: | :------------------------: |
-|  0.0648  |           0.0295           |           0.1001           |
-| 24694.21 |          24328.31          |          25060.11          |
-| 14528.45 |          14390.38          |          14666.52          |
-
-**KNN**
-
-|   Avg    | 95% Confidence Lower Bound | 95% Confidence Upper Bound |
-| :------: | :------------------------: | :------------------------: |
-|  0.5719  |           0.5577           |           0.5861           |
-| 16626.91 |          16328.75          |          16925.07          |
-| 10190.23 |          9959.57           |          10420.88          |
-
-**SVM**
-
-|   Avg    | 95% Confidence Lower Bound | 95% Confidence Upper Bound |
-| :------: | :------------------------: | :------------------------: |
-|  -1.089  |          -1.1369           |          -1.0411           |
-| 51526.48 |          51295.45          |          51757.51          |
-| 56692.89 |          56354.73          |          57031.05          |
-
-### DL Models
+## DL Models
 
 We selected manual CNN, ResNet34, transformer, DRSN, and EfficientNet models and evaluated them.
+
+### Training
+
+To facilitate training, we set up some arguments:
+
+- Which is a default status
+
+  ```
+  python ./train.py # models are ['CNN' 'ResNet34' 'transformer' 'DRSN' 'EfficientNet']
+  ```
+
+- Set Batchsize
+
+  ```
+  python ./train.py --batch_size=64
+  ```
+
+### Evaluation
 
 **manual CNN**
 
